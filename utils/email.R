@@ -1,5 +1,6 @@
 # Imports ----------------------------------------------------------------
 library(magrittr)
+source("utils/request.R")
 
 # Construct HTML body of email -------------------------------------------
 compile_html_body <- function(...) {
@@ -9,9 +10,9 @@ compile_html_body <- function(...) {
     for (key in names(components)) {
         html_body <- paste0(html_body, glue::glue("<h3>{key}</h3>"))
         if (check_empty_response(components[[key]])) {
-            html_body <- paste0(html_body, htmlTable::htmlTable(components[[key]]))
-        } else {
             html_body <- paste0(html_body, "<p>None.</p>")
+        } else {
+            html_body <- paste0(html_body, htmlTable::htmlTable(components[[key]]))
         }
         html_body <- paste0(html_body, "<br>")
     }

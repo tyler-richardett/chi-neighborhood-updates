@@ -15,7 +15,7 @@ main <- function(args) {
     filming_permits <- get_filming_permits(search_area = search_area)
 
     html_body <- compile_html_body(
-        `New Business Licenses` = business_licensess,
+        `New Business Licenses` = business_licenses,
         `New Food Inspection Results` = food_inspections,
         `New Filming Permits` = filming_permits
     )
