@@ -18,14 +18,14 @@ jobs:
 
       - name: Install Python
         uses: actions/setup-python@v2
-          with:
-            python-version: '3.8'
+        with:
+          python-version: '3.8'
 
       - name: Install Java
         uses: actions/setup-java@v2
-          with:
-            distribution: 'adopt'
-            java-version: '8'
+        with:
+          distribution: 'adopt'
+          java-version: '8'
 
       - name: Install dependencies using renv
         run: renv::restore()
