@@ -17,8 +17,7 @@ within_circle <- function(field = "location", latitude, longitude, radius) {
 
 get_previous_sunday <- function() {
     current_date <- Sys.time() %>% lubridate::with_tz("America/Chicago") %>% lubridate::as_date()
-    previous_sunday <- lubridate::floor_date(current_date, "week")
-    if (current_date == previous_sunday) previous_sunday <- previous_sunday - 7
+    previous_sunday <- lubridate::floor_date(current_date, "week") - 7
     return(previous_sunday)
 }
 
