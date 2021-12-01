@@ -15,9 +15,6 @@ jobs:
       - name: Install R
         uses: r-lib/actions/setup-r@v1
 
-      - name: Install renv
-        uses: r-lib/actions/setup-renv@v1
-
       - name: Install Python
         uses: actions/setup-python@v2
         with:
@@ -29,9 +26,8 @@ jobs:
           distribution: 'adopt'
           java-version: '8'
 
-      - name: Install dependencies using renv
-        run: renv::restore()
-        shell: Rscript {0}
+      - name: Install renv and restore
+        uses: r-lib/actions/setup-renv@v1
 
       - name: Pull data and send email
         run: |
