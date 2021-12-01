@@ -44,7 +44,7 @@ send_email <- function(from_address, to_addresses, html_body,
                 port = smtp_port,
                 user.name = smtp_user,
                 passwd = smtp_password,
-                tls = TRUE
+                tls = FALSE
             ),
             authenticate = TRUE,
             send = TRUE
