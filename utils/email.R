@@ -84,9 +84,7 @@ gt_theme_538 <- function(data,...) {
             column_labels.border.top.color = "rgba(0, 0, 0, 0)",
             column_labels.border.bottom.width = gt::px(3),
             column_labels.border.bottom.color = "black",
-            data_row.padding = gt::px(3),
-            source_notes.font.size = 12,
-            table.font.size = "0.85em",
+            data_row.padding = gt::px(10),
             heading.align = "left",
             ...
         )

@@ -99,7 +99,10 @@ get_business_licenses <- function(application_type = "ISSUE", search_area) {
 }
 
 # Get food inspection results --------------------------------------------
-get_food_inspections <- function(facility_type = "Restaurant", search_area) {
+get_food_inspections <- function(facility_type = "Restaurant",
+                                 results = c("Pass", "Pass w/ Conditions", "Fail"),
+                                 search_area) {
+
     where_center <- rgeos::readWKT(glue::glue("POINT ({search_area$longitude} {search_area$latitude})"))
     where_radius <- rgeos::gBuffer(where_center, width = search_area$radius / 111139)
 
@@ -113,10 +116,16 @@ get_food_inspections <- function(facility_type = "Restaurant", search_area) {
         values = facility_type
     )
 
+    where_results <- value_in(
+        field = "results",
+        values = results
+    )
+
     query <- list(
         `$where` = construct_where_string(
             where_date,
-            where_facility_type
+            where_facility_type,
+            where_results
         )
     )
 
@@ -143,7 +152,8 @@ get_food_inspections <- function(facility_type = "Restaurant", search_area) {
         dplyr::arrange(dplyr::desc(inspection_date)) %>%
         dplyr::mutate(
             collapsed_name = toupper(ifelse(dba_name == aka_name, dba_name, glue::glue("{dba_name} (AKA: {aka_name})"))),
-            inspection_date = strtrim(inspection_date, 10)
+            inspection_date = strtrim(inspection_date, 10),
+            violations = ifelse("violations" %in% names(.), violations, NA)
         ) %>%
         dplyr::select(
             `Business Name` = collapsed_name,
