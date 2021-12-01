@@ -1,5 +1,7 @@
 name: cron-send-email
 on:
+  workflow_dispatch:
+    branches: [ main ]
   schedule:
     - cron: "0 14 * * SUN"
 
