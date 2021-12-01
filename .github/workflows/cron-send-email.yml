@@ -34,6 +34,7 @@ jobs:
           Rscript main.R \
             --search_area_latitude ${{ secrets.SEARCH_AREA_LATITUDE }} \
             --search_area_longitude ${{ secrets.SEARCH_AREA_LONGITUDE }} \
+            --from_address ${{ secrets.FROM_ADDRESS }} \
             --to_addresses ${{ secrets.TO_ADDRESSES }} \
             --smtp_user ${{ secrets.SMTP_USER }} \
             --smtp_password ${{ secrets.SMTP_PASSWORD }}

@@ -40,8 +40,7 @@ if (!interactive()) {
                         help = "Longitude of search area center.")
     parser$add_argument("--search_area_radius", type = "integer", default = 2750,
                         help = "Radius of search area (in meters).")
-    parser$add_argument("--from_address", default = "updates@mailgun.org",
-                        help = "Address of email sender.")
+    parser$add_argument("--from_address", help = "Address of email sender.")
     parser$add_argument("--to_addresses", help = "Comma-separated addresses of email recipients.")
     parser$add_argument("--smtp_server", default = "smtp.mailgun.org",
                         help = "Mailgun SMTP server address.")
