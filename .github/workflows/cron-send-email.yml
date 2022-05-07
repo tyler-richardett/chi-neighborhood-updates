@@ -20,15 +20,11 @@ jobs:
         with:
           python-version: '3.8'
 
-      - name: Install Java
-        uses: actions/setup-java@v2
-        with:
-          distribution: 'adopt'
-          java-version: '8'
-
       - name: Install rJava
         run: |
-          sudo apt-get install -y r-api-3.4
+          sudo apt-get update
+          sudo apt-get install default-jre
+          sudo apt-get install default-jdk
           sudo apt-get install -y r-cran-rjava
 
       - name: Set up renv
