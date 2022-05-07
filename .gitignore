@@ -2,6 +2,7 @@
 # Edit at https://www.toptal.com/developers/gitignore?templates=r,python,macos,windows,visualstudio,visualstudiocode
 
 private
+.secrets
 
 ### macOS ###
 # General
