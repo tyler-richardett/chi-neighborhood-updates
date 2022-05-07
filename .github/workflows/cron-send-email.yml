@@ -7,7 +7,7 @@ on:
 
 jobs:
   cron-send-email:
-    runs-on: macos-latest
+    runs-on: macos-10.15
     steps:
       - name: Check out repository code
         uses: actions/checkout@v2
