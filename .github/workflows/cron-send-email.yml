@@ -28,7 +28,6 @@ jobs:
 
       - name: Install rJava
         run: |
-          sudo R CMD javareconf
           sudo apt-get install -y r-cran-rjava
 
       - name: Set up renv
