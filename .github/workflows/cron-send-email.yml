@@ -14,18 +14,20 @@ jobs:
 
       - name: Install R
         uses: r-lib/actions/setup-r@v1
+        with:
+          r-version: '3.6.3'
 
       - name: Install Python
         uses: actions/setup-python@v2
         with:
           python-version: '3.8'
 
-      - name: Install rJava
+      - name: Install rJava dependencies
         run: |
           sudo apt-get update
-          sudo apt-get install default-jre
-          sudo apt-get install default-jdk
-          sudo apt-get install -y r-cran-rjava
+          sudo apt-get install -y default-jre
+          sudo apt-get install -y default-jdk
+          sudo R CMD javareconf
 
       - name: Set up renv
         uses: r-lib/actions/setup-renv@v1
