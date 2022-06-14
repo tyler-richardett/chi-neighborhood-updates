@@ -140,6 +140,7 @@ get_food_inspections <- function(facility_type = "Restaurant",
     if (check_empty_response(response)) return(response)
 
     inspections <- response %>%
+        dplyr::filter(!is.na(longitude), !is.na(latitude)) %>%
         dplyr::rowwise() %>%
         dplyr::mutate(
             within_radius = rgeos::gContains(
