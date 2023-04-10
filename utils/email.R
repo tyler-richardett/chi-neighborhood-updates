@@ -32,24 +32,21 @@ send_email <- function(from_address, to_addresses, html_body,
 
     subject <- as.character(glue::glue("Summary of Local CDP Updates - Week of {previous_sunday}"))
 
-    for (to_address in to_addresses) {
-        mailR::send.mail(
-            from = from_address,
-            to = to_address,
-            subject = subject,
-            body = html_body,
-            html = TRUE,
-            smtp = list(
-                host.name = smtp_server,
-                port = smtp_port,
-                user.name = smtp_user,
-                passwd = smtp_password,
-                tls = FALSE
-            ),
-            authenticate = TRUE,
-            send = TRUE
-        )
-    }
+    email <- emayili::envelope(
+        to = to_addresses,
+        from = from_address,
+        subject = subject,
+        html = html_body
+    )
+
+    smtp <- emayili::server(
+        host = smtp_server,
+        port = smtp_port,
+        username = smtp_user,
+        password = smtp_password
+    )
+
+    smtp(email, verbose = TRUE)
 
 }
 
