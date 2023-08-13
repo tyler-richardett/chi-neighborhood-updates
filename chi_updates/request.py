@@ -232,7 +232,7 @@ def get_food_inspections(
                 "address": "Address",
                 "inspection_type": "Inspection Type",
                 "results": "Results",
-                "risk": "Risk",
+                "risk": "Risk Level",
             }
         )
 
