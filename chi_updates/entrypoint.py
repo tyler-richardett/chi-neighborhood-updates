@@ -1,8 +1,12 @@
 import argparse
 
 from chi_updates.email import compile_html_body, send_email
-from chi_updates.request import (SearchArea, get_business_licenses,
-                                 get_filming_permits, get_food_inspections)
+from chi_updates.request import (
+    SearchArea,
+    get_business_licenses,
+    get_filming_permits,
+    get_food_inspections,
+)
 
 
 def main():

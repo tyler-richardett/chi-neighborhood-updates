@@ -163,9 +163,11 @@ def get_business_licenses(
         )
 
         # Select relevant columns and sort
-        results_df = results_df[
-            results_df.columns &
-            ["Business Name", "Address", "Start Date", "End Date", "License Type"]
+        results_df = results_df.loc[
+            :,
+            results_df.columns.isin(
+                ["Business Name", "Address", "Start Date", "End Date", "License Type"]
+            ),
         ]
         results_df = results_df.sort_values(
             by=["Start Date", "End Date"], ascending=False
@@ -238,17 +240,19 @@ def get_food_inspections(
         )
 
         # Select relevant columns and sort
-        results_df = results_df[
-            results_df.columns &
-            [
-                "Business Name",
-                "Address",
-                "Inspection Date",
-                "Inspection Type",
-                "Results",
-                "Risk Level",
-                "Violations",
-            ]
+        results_df = results_df.loc[
+            :,
+            results_df.columns.isin(
+                [
+                    "Business Name",
+                    "Address",
+                    "Inspection Date",
+                    "Inspection Type",
+                    "Results",
+                    "Risk Level",
+                    "Violations",
+                ]
+            ),
         ]
         results_df = results_df.sort_values(
             by=["Inspection Date", "Business Name"], ascending=False
@@ -316,17 +320,19 @@ def get_filming_permits(
         )
 
         # Select relevant columns and sort
-        results_df = results_df[
-            results_df.columns &
-            [
-                "Contact Name",
-                "Application Name",
-                "Address",
-                "Start Date",
-                "End Date",
-                "Details",
-                "Comments",
-            ]
+        results_df = results_df.loc[
+            :,
+            results_df.columns.isin(
+                [
+                    "Contact Name",
+                    "Application Name",
+                    "Address",
+                    "Start Date",
+                    "End Date",
+                    "Details",
+                    "Comments",
+                ]
+            ),
         ]
         results_df = results_df.sort_values(by=["Start Date", "End Date"])
 
