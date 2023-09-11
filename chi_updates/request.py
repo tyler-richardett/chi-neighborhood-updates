@@ -164,6 +164,7 @@ def get_business_licenses(
 
         # Select relevant columns and sort
         results_df = results_df[
+            results_df.columns &
             ["Business Name", "Address", "Start Date", "End Date", "License Type"]
         ]
         results_df = results_df.sort_values(
@@ -238,6 +239,7 @@ def get_food_inspections(
 
         # Select relevant columns and sort
         results_df = results_df[
+            results_df.columns &
             [
                 "Business Name",
                 "Address",
@@ -315,6 +317,7 @@ def get_filming_permits(
 
         # Select relevant columns and sort
         results_df = results_df[
+            results_df.columns &
             [
                 "Contact Name",
                 "Application Name",
