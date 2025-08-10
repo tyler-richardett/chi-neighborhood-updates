@@ -23,7 +23,7 @@ class SocrataDatasets(ABC):
 
     """
 
-    BUSINESS_LICENSES = "uupf-x98q"
+    BUSINESS_LICENSES = "r5kz-chrr"
     FOOD_INSPECTIONS = "4ijn-s7e5"
     FILMING_PERMITS = "c2az-nhru"
     BUILDING_PERMITS = "ydr8-5enu"
